@@ -1,9 +1,19 @@
 # BLACKJACK-GAME
 import random
 ##creating super class
+
+
+
 class Deck():
-    deck_cards = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'] * 4
-    #a function that creates a list of cards chosen at random from above list
+   
+   
+   deck_cards = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'] * 4
+   
+   
+   #a function that creates a list of cards chosen at random from above list
+    
+    
+    
     def picks(self, num):
         pickd=[]
         for _ in range(num):
@@ -16,6 +26,8 @@ class Deck():
 
         return pickd
 #a class associated with the player
+
+
 class Player(Deck):
 
     cards=[]
@@ -24,6 +36,8 @@ class Player(Deck):
         self.money = 500
 
 #class associated with the dealer
+
+
 class Dealr(Deck):
 
     cards=[]
@@ -31,6 +45,8 @@ class Dealr(Deck):
 
 #definitions
 #structure that prints the card
+
+
 def print_cards(cards):
 
 
@@ -40,6 +56,8 @@ def print_cards(cards):
         print("{0:^4}-----".format(''))
 
 #prints the game board for gameplay
+
+
 def print_board(cards1, cards2):
 
 
@@ -56,6 +74,8 @@ def print_board(cards1, cards2):
 
 
 #assigninig the values to the different cards in a deck and retrieving the sum of cards with the player and the dealer
+
+
 def fidvalue(cards):
     card_value=[]
     total=0
@@ -73,9 +93,13 @@ def fidvalue(cards):
     return total
 #game starts
 #defining two empty lists for player and dealer one each
+
+
 p1= Player()
 d1=Dealr()
 #two cards with face up in the player's list while one card face up in dealer's list
+
+
 while True:
     p1.cards=p1.picks(2)
     d1.cards=d1.picks(1)
@@ -130,6 +154,8 @@ while True:
             dealr_won=False
 
     #if the sum of values on dealers cards is less then seventeen and the player has chose to stand the dealer gets one more card
+    
+    
     if not dealr_won:
         while True:
               if fidvalue(d1.cards)<17:
@@ -174,6 +200,8 @@ while True:
             print("_"*150)
     else:
         #player gets double the amount of bet as soon as he wins
+       
+       
         p1.money+=2*bet
         print("_"*170)
         print("You won! double the bet credited to your account.")
